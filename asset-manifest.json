@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/last-fm-grams/static/css/main.c10a2394.chunk.css",
+    "main.js": "/last-fm-grams/static/js/main.855eb919.chunk.js",
+    "main.js.map": "/last-fm-grams/static/js/main.855eb919.chunk.js.map",
+    "runtime-main.js": "/last-fm-grams/static/js/runtime-main.f068a190.js",
+    "runtime-main.js.map": "/last-fm-grams/static/js/runtime-main.f068a190.js.map",
+    "static/css/2.a72c35d3.chunk.css": "/last-fm-grams/static/css/2.a72c35d3.chunk.css",
+    "static/js/2.22b800e8.chunk.js": "/last-fm-grams/static/js/2.22b800e8.chunk.js",
+    "static/js/2.22b800e8.chunk.js.map": "/last-fm-grams/static/js/2.22b800e8.chunk.js.map",
+    "index.html": "/last-fm-grams/index.html",
+    "precache-manifest.341ee5c2ca72dce8c7e5929130b6f9b9.js": "/last-fm-grams/precache-manifest.341ee5c2ca72dce8c7e5929130b6f9b9.js",
+    "service-worker.js": "/last-fm-grams/service-worker.js",
+    "static/css/2.a72c35d3.chunk.css.map": "/last-fm-grams/static/css/2.a72c35d3.chunk.css.map",
+    "static/css/main.c10a2394.chunk.css.map": "/last-fm-grams/static/css/main.c10a2394.chunk.css.map",
+    "static/js/2.22b800e8.chunk.js.LICENSE.txt": "/last-fm-grams/static/js/2.22b800e8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f068a190.js",
+    "static/css/2.a72c35d3.chunk.css",
+    "static/js/2.22b800e8.chunk.js",
+    "static/css/main.c10a2394.chunk.css",
+    "static/js/main.855eb919.chunk.js"
+  ]
+}
