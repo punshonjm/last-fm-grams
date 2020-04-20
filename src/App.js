@@ -9,7 +9,7 @@ import MainApp from './components/MainApp';
 import { AppContextProvider, useAppContext } from './components/MainApp/appContext';
 
 function App() {
-  const [setupUser, setSetupUser] = React.useState('punshonjm');
+  const [setupUser, setSetupUser] = React.useState('');
   const { user, setUser } = useAppContext();
 
   const getUserDetails = async () => {
