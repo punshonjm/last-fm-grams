@@ -1,7 +1,8 @@
 import React from 'react';
-import { UserOutlined } from '@ant-design/icons';
+import uniqueId from 'lodash/uniqueId';
+
 import {
-  Card, Skeleton, Avatar, Typography, Row, Col,
+  Card, Skeleton, Typography, Row, Col,
 } from 'antd';
 
 import { useAppContext } from '../MainApp/appContext';
@@ -64,67 +65,69 @@ const Feed = () => {
 
   if (loading) {
     return (
-      <>
-        {Array(3).fill(null).map(() => (
-          <Card style={{ marginTop: '1em', maxWidth: '50%' }}>
-            <Skeleton avatar paragraph={{ rows: 4 }} />
-          </Card>
-        ))}
-      </>
+      <Row justify="center">
+        <Col span={24} lg={12}>
+          {Array(3).fill(null).map(() => (
+            <Card key={uniqueId('skeleton')} style={{ marginBottom: '1em' }}>
+              <Skeleton avatar paragraph={{ rows: 4 }} />
+            </Card>
+          ))}
+        </Col>
+      </Row>
     );
   }
-
-  const [first] = timeline
-  console.log(first || null);
 
   return (
     <>
       {timeline.map((track) => (
-        <Card
-          key={`${track.user}.${track.mbid}`}
-          style={{ maxWidth: '50%', marginBottom: '1em' }}
-          cover={
-            <img
-              alt={`${track.artist} - ${track.album} - ${track.name}`}
-              src={track.image}
-            />
-          }
-        >
-          <Card.Meta
-            title={(
-              <>
-                <Title
-                  level={4}
-                  style={{ display: 'block', marginBottom: '0' }}
-                >
-                  {track.key || track.name}
-                </Title>
-                {track.key
-                  ? <Text style={{ display: 'block' }} strong>{track.artist}</Text>
-                  : (
-                    <>
-                      <Text style={{ display: 'block' }} type="secondary">{track.album}</Text>
-                      <Text style={{ display: 'block' }} strong>{track.artist}</Text>
-                    </>
-                  )}
-              </>
-            )}
-          />
-          <div style={{ marginTop: '1em' }}>
-            <Row>
-              <Col span={12}>
-                <Text strong>
-                  {track.user}
-                </Text>
-              </Col>
-              <Col span={12} style={{ textAlign: 'right' }}>
-                <Text type="secondary">
-                  Played at {track.date}
-                </Text>
-              </Col>
-            </Row>
-          </div>
-        </Card>
+        <Row justify="center" key={`${track.user}.${track.date}`}>
+          <Col span={24} lg={12}>
+            <Card
+              style={{ marginBottom: '1em' }}
+              cover={
+                <img
+                  alt={`${track.artist} - ${track.album} - ${track.name}`}
+                  src={track.image}
+                />
+              }
+            >
+              <Card.Meta
+                title={(
+                  <>
+                    <Title
+                      level={4}
+                      style={{ display: 'block', marginBottom: '0' }}
+                    >
+                      {track.key || track.name}
+                    </Title>
+                    {track.key
+                      ? <Text style={{ display: 'block' }} strong>{track.artist}</Text>
+                      : (
+                        <>
+                          <Text style={{ display: 'block' }} type="secondary">{track.album}</Text>
+                          <Text style={{ display: 'block' }} strong>{track.artist}</Text>
+                        </>
+                      )}
+                  </>
+                )}
+              />
+              <div style={{ marginTop: '1em' }}>
+                <Row>
+                  <Col span={12}>
+                    <Text strong>
+                      {track.user}
+                    </Text>
+                  </Col>
+                  <Col span={12} style={{ textAlign: 'right' }}>
+                    <Text type="secondary">
+                      Played at {track.date}
+                    </Text>
+                  </Col>
+                </Row>
+              </div>
+            </Card>
+          </Col>
+        </Row>
       ))}
     </>
   );
