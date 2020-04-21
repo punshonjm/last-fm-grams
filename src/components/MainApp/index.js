@@ -1,67 +1,69 @@
 import React from 'react';
+import { Switch, Link, Route } from 'react-router-dom';
+
 import {
-  Layout, Row, Col, Avatar, Tag, Typography, Menu, Statistic,
+  Layout, Row, Col, Avatar, Tag, Menu,
 } from 'antd';
 
 import {
   UserOutlined,
   PicCenterOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined
 } from '@ant-design/icons';
 
-import Feed from '../Feed/Feed';
+import Feed from '../Feed';
 import { useAppContext } from './appContext';
-
-const { Text } = Typography;
+import MySummary from '../MySummary';
 
 const MainApp = () => {
-  const [collapsed, setCollapsed] = React.useState(true);
   const { user } = useAppContext();
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Layout.Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        collapsible
-        collapsed={collapsed}
-        trigger={null}
+      <Layout.Header
+        style={{
+          padding: '0 1em',
+          position: 'fixed',
+          zIndex: 1,
+          width: '100%',
+        }}
       >
-        <div className="logo" style={{ height: '64px' }} />
         <Menu
-          mode="inline"
+          mode="horizontal"
           theme="dark"
-          style={{ height: '100%', borderRight: 0 }}
           defaultSelectedKeys={['1']}
         >
+          <Menu.Item key="0">
+            <span style={{ color: '#fff' }}>Last.fm Grams</span>
+          </Menu.Item>
           <Menu.Item key="1">
-            <PicCenterOutlined />
-            <span>Timeline</span>
+            <Link to="/">
+              <PicCenterOutlined />
+              <span>Timeline</span>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/my-summary">
+              <UserOutlined />
+              <span>My Summary</span>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="3" style={{ float: 'right' }}>
+            <Avatar size="large" icon={<UserOutlined />} />
+            <span style={{ margin: '0 .5em', color: '#fff' }}>
+              {user.name}
+            </span>
+            <Tag color="geekblue">{user.playcount} plays</Tag>
           </Menu.Item>
         </Menu>
-      </Layout.Sider>
+      </Layout.Header>
       <Layout>
-        <Layout.Header style={{ background: '#fff', padding: 0 }}>
-          <span
-            onClick={() => setCollapsed(!collapsed)}
-            className="trigger"
-            style={{ marginLeft: '16px' }}
-          >
-            {collapsed
-              ? <MenuUnfoldOutlined style={{ fontSize: '2em' }} />
-              : <MenuFoldOutlined style={{ fontSize: '2em' }} />}
-          </span>
-          <span style={{ float: 'right' }}>
-            <Text strong style={{ margin: '0 .5em' }}>{user.name}</Text>
-            <Tag color="geekblue">{user.playcount} plays</Tag>
-            <Avatar size="large" icon={<UserOutlined />} />
-          </span>
-        </Layout.Header>
-        <Layout.Content style={{ margin: '2em' }}>
-          <Row gutter={24}>
+        <Layout.Content style={{ marginTop: '64px' }}>
+          <Row gutter={24} style={{ marginTop: '2em' }}>
             <Col span={24}>
-              <Feed />
+              <Switch>
+                <Route path="/my-summary" component={MySummary} />
+                <Route path="/" exact component={Feed} />
+              </Switch>
             </Col>
           </Row>
         </Layout.Content>
