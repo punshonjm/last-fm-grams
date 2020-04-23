@@ -58,6 +58,10 @@ const Feed = () => {
         release: <SyncOutlined spin />,
         finish: 'Done!',
       }}
+      style={{
+        height: document.documentElement.clientHeight,
+        overflow: 'auto',
+      }}
     >
       {timeline.map((track) => (<TimelineEntry track={track} />))}
     </PullToRefresh>

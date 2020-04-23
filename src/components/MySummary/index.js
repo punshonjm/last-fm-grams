@@ -93,6 +93,10 @@ const MySummary = () => {
         release: <SyncOutlined spin />,
         finish: 'Done!',
       }}
+      style={{
+        height: document.documentElement.clientHeight,
+        overflow: 'auto',
+      }}
     >
       <Row gutter={24} style={{ marginBottom: '2em' }}>
         <Col span={24}>
