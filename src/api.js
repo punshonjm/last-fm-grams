@@ -26,14 +26,14 @@ export const getUserFriends = (user) => api
 export const getUserRecentTracks = (user) => api
   .get(`/?method=user.getrecenttracks&user=${user}`);
 
-export const getUserTopAlbums = (user) => api
-  .get(`/?method=user.gettopalbums&user=${user}`);
+export const getUserTopAlbums = (user, period = 'overall') => api
+  .get(`/?method=user.gettopalbums&user=${user}&period=${period}`);
 
-export const getUserTopArtists = (user) => api
-  .get(`/?method=user.gettopartists&user=${user}`);
+export const getUserTopArtists = (user, period = 'overall') => api
+  .get(`/?method=user.gettopartists&user=${user}&period=${period}`);
 
-export const getUserTopTracks = (user) => api
-  .get(`/?method=user.gettoptracks&user=${user}`);
+export const getUserTopTracks = (user, period = 'overall') => api
+  .get(`/?method=user.gettoptracks&user=${user}&period=${period}`);
 
 export const getUserWeeklyAlbums = (user) => api
   .get(`/?method=user.getweeklyalbumchart&user=${user}`);
@@ -49,7 +49,7 @@ const getImage = (images) => {
   return image;
 };
 
-const getText = (value) => value['#text'] || value;
+const getText = (value) => (value && value['#text']) || value;
 
 const mapTracks = (tracks, user) => tracks.map(({
   artist,

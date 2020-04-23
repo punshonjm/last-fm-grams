@@ -1,5 +1,4 @@
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
 
 import './App.css';
 import MainApp from './components/MainApp';
@@ -18,8 +17,6 @@ function App() {
 
 export default () => (
   <AppContextProvider>
-    <Router basename="/">
-      <App />
-    </Router>
+    <App />
   </AppContextProvider>
 );

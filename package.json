@@ -5,10 +5,13 @@
   "homepage": "https://punshonjm.github.io/last-fm-grams/",
   "dependencies": {
     "@ant-design/icons": "^4.0.6",
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.1.4",
+    "antd-mobile": "^2.3.1",
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
