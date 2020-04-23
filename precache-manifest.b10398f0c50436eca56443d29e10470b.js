@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "977bef757220380d9eae7dd7f607aee3",
+    "revision": "1587aa6edd6387309ed2a90b329b73ee",
     "url": "/last-fm-grams/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/last-fm-grams/static/css/2.473879a4.chunk.css"
   },
   {
-    "revision": "0d2db1f5daed649c6757",
+    "revision": "e047a1df6b311fde8494",
     "url": "/last-fm-grams/static/css/main.c10a2394.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/last-fm-grams/static/js/2.b4434a74.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0d2db1f5daed649c6757",
-    "url": "/last-fm-grams/static/js/main.929e56c2.chunk.js"
+    "revision": "e047a1df6b311fde8494",
+    "url": "/last-fm-grams/static/js/main.1d2017a0.chunk.js"
   },
   {
     "revision": "454a7ce9f8bfeb324687",
