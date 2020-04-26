@@ -1,7 +1,5 @@
 import React from 'react';
 import uniqueId from 'lodash/uniqueId';
-import { PullToRefresh } from 'antd-mobile';
-import { SyncOutlined } from '@ant-design/icons';
 
 import {
   Card, Skeleton, Row, Col, Statistic,
@@ -84,20 +82,7 @@ const MySummary = () => {
   };
 
   return (
-    <PullToRefresh
-      refreshing={refreshing}
-      onRefresh={refreshData}
-      indicator={{
-        activate: "Pull to refresh",
-        deactivate: 'Release to cancel',
-        release: <SyncOutlined spin />,
-        finish: 'Done!',
-      }}
-      style={{
-        height: document.documentElement.clientHeight,
-        overflow: 'auto',
-      }}
-    >
+    <>
       <Row gutter={24} style={{ marginBottom: '2em' }}>
         <Col span={24}>
           <Card title="The Basics">
@@ -128,7 +113,7 @@ const MySummary = () => {
           />
         </Col>
       </Row>
-    </PullToRefresh>
+    </>
   );
 };
 

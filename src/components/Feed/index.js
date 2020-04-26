@@ -4,8 +4,6 @@ import uniqueId from 'lodash/uniqueId';
 import {
   Card, Skeleton, Row, Col,
 } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
-import { PullToRefresh } from 'antd-mobile';
 
 import { useAppContext } from '../MainApp/appContext';
 import * as api from '../../api';
@@ -49,22 +47,9 @@ const Feed = () => {
   }
 
   return (
-    <PullToRefresh
-      refreshing={refreshing}
-      onRefresh={refreshData}
-      indicator={{
-        activate: "Pull to refresh",
-        deactivate: 'Release to cancel',
-        release: <SyncOutlined spin />,
-        finish: 'Done!',
-      }}
-      style={{
-        height: document.documentElement.clientHeight,
-        overflow: 'auto',
-      }}
-    >
+    <>
       {timeline.map((track) => (<TimelineEntry track={track} />))}
-    </PullToRefresh>
+    </>
   );
 };
 
